@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM DATA BY KASMIRA</title>
+
+    <style>
+            * {
+                box-sizing: border-box;
+            }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px;
+    rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+    <h1 style="text-align: center;">FORM DATA BY KASMIRA</h1>
+
+    <form id="formData">
+
+        <label>Nama:</label>
+        <input type="text" name="nama">
+        <br><br>
+        
+       <label>Kelas:</label>
+        <input type="text" name="kelas">
+        <br><br>
+
+        <label>Jurusan:</label>
+        <input type="text" name="jurusan">
+        <br><br>
+
+        <label>Alamat:</label>
+        <input type="text" name="alamat">
+        <br><br>
+
+        <button type="submit">Simpan</button>
+    </form>
+            <script>
+alert("JavaScript aktif!");
+
+const form = document.getElementById("formData");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    alert("Tombol Simpan berhasil ditekan!");
+
+    const data = {
+        nama: document.querySelector('input[name="nama"]').value,
+        kelas: document.querySelector('input[name="kelas"]').value,
+        jurusan: document.querySelector('input[name="jurusan"]').value,
+        alamat: document.querySelector('input[name="alamat"]').value
+    };
+
+    fetch("URL_WEB_APP_KAMU", {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert("Data berhasil disimpan!");
+        form.reset();
+    })
+    .catch(error => {
+        alert("Gagal menyimpan data!");
+        console.error(error);
+    });
+});
+</script>
+
+<script>
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+        nama: document.querySelector('input[name="nama"]').value,
+        kelas: document.querySelector('input[name="kelas"]').value,
+        jurusan: document.querySelector('input[name="jurusan"]').value,
+        alamat: document.querySelector('input[name="alamat"]').value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbxrLW_KeroJAc-QByH9g_3Yx4dFk-lBEn8ELPLugz6JBwtWeBjfMnPAucknviGphF5C/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert("Data berhasil disimpan!");
+        form.reset();
+    })
+    .catch(error => {
+        alert("Gagal menyimpan data!");
+        console.error(error);
+    });
+});
+</script>
+        </div>
+
+ </form>
+</body>
+</html>
